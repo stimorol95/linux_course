@@ -1,0 +1,152 @@
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt update
+[sudo] пароль для student: 
+Попробуйте ещё раз.
+[sudo] пароль для student: 
+Попробуйте ещё раз.
+[sudo] пароль для student: 
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu xenial InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu xenial-updates InRelease [99,8 kB]   
+Пол:3 http://ru.archive.ubuntu.com/ubuntu xenial-backports InRelease [97,4 kB] 
+Пол:4 http://security.ubuntu.com/ubuntu xenial-security InRelease [99,8 kB]    
+Сущ:5 http://ppa.launchpad.net/linuxuprising/java/ubuntu xenial InRelease      
+Сущ:6 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease        
+Сущ:7 https://dbeaver.io/debs/dbeaver-ce  InRelease                            
+Получено 297 kB за 2с (107 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Может быть обновлено 456 пакетов. Запустите «apt list --upgradable» для их показа.
+student@Ubuntu-MySQL-VirtualBox:~$ sudo systemctl enable ssh
+Synchronizing state of ssh.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable ssh
+student@Ubuntu-MySQL-VirtualBox:~$ sudo systemctl status ssh
+● ssh.service - OpenBSD Secure Shell server
+   Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enabled)
+   Active: active (running) since Вс 2022-05-22 16:55:28 MSK; 33min ago
+ Main PID: 783 (sshd)
+   CGroup: /system.slice/ssh.service
+           └─783 /usr/sbin/sshd -D
+
+май 22 16:55:28 Ubuntu-MySQL-VirtualBox systemd[1]: Reloading OpenBSD Secure Shell server.
+май 22 16:55:28 Ubuntu-MySQL-VirtualBox sshd[783]: Received SIGHUP; restarting.
+май 22 16:55:28 Ubuntu-MySQL-VirtualBox systemd[1]: Reloaded OpenBSD Secure Shell server.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox sshd[783]: Server listening on 0.0.0.0 port 22.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox sshd[783]: Server listening on :: port 22.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox systemd[1]: Reloading OpenBSD Secure Shell server.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox sshd[783]: Received SIGHUP; restarting.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox systemd[1]: Reloaded OpenBSD Secure Shell server.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox sshd[783]: Server listening on 0.0.0.0 port 22.
+май 22 16:55:29 Ubuntu-MySQL-VirtualBox sshd[783]: Server listening on :: port 22.
+student@Ubuntu-MySQL-VirtualBox:~$ hostname -I
+10.0.2.15 
+student@Ubuntu-MySQL-VirtualBox:~$ ^C
+student@Ubuntu-MySQL-VirtualBox:~$ hostname -I
+192.168.1.85 
+student@Ubuntu-MySQL-VirtualBox:~$ ^C
+student@Ubuntu-MySQL-VirtualBox:~$ ls
+examples.desktop  Видео  Документы  Загрузки  Изображения  Музыка  Общедоступные  Рабочий стол  Шаблоны
+student@Ubuntu-MySQL-VirtualBox:~$ mkdir lws
+student@Ubuntu-MySQL-VirtualBox:~$ cd lws
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mkdir students mentors
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ll
+итого 16
+drwxrwxr-x  4 student student 4096 май 22 17:44 ./
+drwxr-xr-x 24 student student 4096 май 22 17:43 ../
+drwxrwxr-x  2 student student 4096 май 22 17:44 mentors/
+drwxrwxr-x  2 student student 4096 май 22 17:44 students/
+student@Ubuntu-MySQL-VirtualBox:~/lws$ touch students_list.txt mentors_list.txt
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ll
+итого 16
+drwxrwxr-x  4 student student 4096 май 22 17:48 ./
+drwxr-xr-x 24 student student 4096 май 22 17:43 ../
+drwxrwxr-x  2 student student 4096 май 22 17:44 mentors/
+-rw-rw-r--  1 student student    0 май 22 17:48 mentors_list.txt
+drwxrwxr-x  2 student student 4096 май 22 17:44 students/
+-rw-rw-r--  1 student student    0 май 22 17:48 students_list.txt
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+Программа 'tree' на данный момент не установлена. Вы можете установить её, выполнив:
+sudo apt install tree
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ^C
+student@Ubuntu-MySQL-VirtualBox:~/lws$ sudo apt install tree
+[sudo] пароль для student: 
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Следующий пакет устанавливался автоматически и больше не требуется:
+  snapd-login-service
+Для его удаления используйте «sudo apt autoremove».
+Следующие НОВЫЕ пакеты будут установлены:
+  tree
+Обновлено 0 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 456 пакетов не обновлено.
+Необходимо скачать 40,6 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 138 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu xenial/universe amd64 tree amd64 1.7.0-3 [40,6 kB]
+Получено 40,6 kB за 0с (459 kB/s)
+Выбор ранее не выбранного пакета tree.
+(Чтение базы данных … на данный момент установлено 222153 файла и каталога.)
+Подготовка к распаковке …/tree_1.7.0-3_amd64.deb …
+Распаковывается tree (1.7.0-3) …
+Обрабатываются триггеры для man-db (2.7.5-1) …
+Настраивается пакет tree (1.7.0-3) …
+student@Ubuntu-MySQL-VirtualBox:~$ cd lws
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ll
+итого 16
+drwxrwxr-x  4 student student 4096 май 22 18:50 ./
+drwxr-xr-x 24 student student 4096 май 22 17:43 ../
+drwxrwxr-x  2 student student 4096 май 22 18:53 mentors/
+drwxrwxr-x  2 student student 4096 май 22 18:53 students/
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── mentors
+│   └── mentors_list.txt
+└── students
+    └── students_list.txt
+
+2 directories, 2 files
+student@Ubuntu-MySQL-Virtu
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mv mentors/mentors_list.txt students/mentors_list.txt
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── mentors
+└── students
+    ├── mentors_list.txt
+    └── students_list.txt
+
+2 directories, 2 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ rm mentors
+rm: невозможно удалить 'mentors': Это каталог
+student@Ubuntu-MySQL-VirtualBox:~/lws$ rm mentors/
+rm: невозможно удалить 'mentors/': Это каталог
+student@Ubuntu-MySQL-VirtualBox:~/lws$ rm mentors/ -rf
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+└── students
+    ├── mentors_list.txt
+    └── students_list.txt
+
+1 directory, 2 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ rename students/ students_and_mentors
+syntax error at (user-supplied code) line 3, at EOF
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+└── students
+    ├── mentors_list.txt
+    └── students_list.txt
+
+1 directory, 2 files
+student@Ubuntu-MySQL-VirtualBox:~/lws/students$ cd ../
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mv students students_and_mentors/
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+└── students_and_mentors
+    ├── mentors_list.txt
+    └── students_list.txt
+
+1 directory, 2 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ rm students_and_mentors -rf 
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+
+0 directories, 0 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ^C
+student@Ubuntu-MySQL-VirtualBox:~/lws$ 
