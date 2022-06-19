@@ -1,0 +1,70 @@
+student@Ubuntu-MySQL-VirtualBox:~$ nano file1
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student    47 июн 19 12:32 file1
+-rw-rw-r--  1 student student     9 июн  5 16:17 file_name.txt
+-rw-rw-r--  1 student student     1 июн  5 14:18 file.txt
+student@Ubuntu-MySQL-VirtualBox:~$ cp file1 file2
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student    47 июн 19 12:32 file1
+-rw-rw-r--  1 student student    47 июн 19 12:33 file2
+-rw-rw-r--  1 student student     9 июн  5 16:17 file_name.txt
+-rw-rw-r--  1 student student     1 июн  5 14:18 file.txt
+student@Ubuntu-MySQL-VirtualBox:~$ ln -s file1 file3
+student@Ubuntu-MySQL-VirtualBox:~$ ln file1 file4
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  2 student student    47 июн 19 12:32 file1
+-rw-rw-r--  1 student student    47 июн 19 12:33 file2
+lrwxrwxrwx  1 student student     5 июн 19 12:34 file3 -> file1
+-rw-rw-r--  2 student student    47 июн 19 12:32 file4
+-rw-rw-r--  1 student student     9 июн  5 16:17 file_name.txt
+-rw-rw-r--  1 student student     1 июн  5 14:18 file.txt
+student@Ubuntu-MySQL-VirtualBox:~$ ls -il
+676278 -rw-rw-r-- 2 student student    47 июн 19 12:32 file1
+676275 -rw-rw-r-- 1 student student    47 июн 19 12:33 file2
+676276 lrwxrwxrwx 1 student student     5 июн 19 12:34 file3 -> file1
+676278 -rw-rw-r-- 2 student student    47 июн 19 12:32 file4
+688769 -rw-rw-r-- 1 student student     9 июн  5 16:17 file_name.txt
+688777 -rw-rw-r-- 1 student student     1 июн  5 14:18 file.txt
+student@Ubuntu-MySQL-VirtualBox:~$ rm file1
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student    47 июн 19 12:33 file2
+lrwxrwxrwx  1 student student     5 июн 19 12:34 file3 -> file1
+-rw-rw-r--  1 student student    47 июн 19 12:32 file4
+-rw-rw-r--  1 student student     9 июн  5 16:17 file_name.txt
+-rw-rw-r--  1 student student     1 июн  5 14:18 file.txt
+Ссылка на с file3 на file1 сломалась
+student@Ubuntu-MySQL-VirtualBox:~$ cat file2
+Произвольное содержимое
+
+student@Ubuntu-MySQL-VirtualBox:~$ cat file3
+cat: file3: Нет такого файла или каталога
+student@Ubuntu-MySQL-VirtualBox:~$ cat file4
+Произвольное содержимое
+student@Ubuntu-MySQL-VirtualBox:~$ mv file2 new_file2
+student@Ubuntu-MySQL-VirtualBox:~$ mv file4 new_file4
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student    47 июн 19 12:33 new_file2
+-rw-rw-r--  1 student student    47 июн 19 12:32 new_file4
+student@Ubuntu-MySQL-VirtualBox:~$ ln -s new_file2 link_to_file2
+student@Ubuntu-MySQL-VirtualBox:~$ ln -s new_file4 link_to_file4
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+lrwxrwxrwx  1 student student     9 июн 19 12:43 link_to_file2 -> new_file2
+lrwxrwxrwx  1 student student     9 июн 19 12:44 link_to_file4 -> new_file4
+student@Ubuntu-MySQL-VirtualBox:~$ mkdir links
+student@Ubuntu-MySQL-VirtualBox:~$ mv link*
+При переносе в другую директорию ссылки перестали работать
+student@Ubuntu-MySQL-VirtualBox:~$ touch file11
+student@Ubuntu-MySQL-VirtualBox:~$ touch file22
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student     0 июн 19 12:51 file11
+-rw-rw-r--  1 student student     0 июн 19 12:52 file22
+student@Ubuntu-MySQL-VirtualBox:~$ chmod go-rw file22
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student     0 июн 19 12:51 file11
+-rw-------  1 student student     0 июн 19 12:52 file22
+student@Ubuntu-MySQL-VirtualBox:~$ touch file33
+student@Ubuntu-MySQL-VirtualBox:~$ chmod 600 file33
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la
+-rw-rw-r--  1 student student     0 июн 19 12:51 file11
+-rw-------  1 student student     0 июн 19 12:52 file22
+-rw-------  1 student student     0 июн 19 12:53 file33
