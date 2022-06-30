@@ -1,0 +1,198 @@
+student@Ubuntu-MySQL-VirtualBox:~$
+student@Ubuntu-MySQL-VirtualBox:~$ vim cls_upp_f.sh
+student@Ubuntu-MySQL-VirtualBox:~$ cat cls_upp_f.sh 
+if [[ $# -eq 0 ]] ; then
+  echo "plese input file" 
+else
+  if [[ -f $1 ]] ; then 
+    sed -e "/^$/d" -e "s/[a-z]/\U&/g" -i $1
+  else
+    echo "$1 isn't file"
+  fi
+fi
+student@Ubuntu-MySQL-VirtualBox:~$ vim file1
+student@Ubuntu-MySQL-VirtualBox:~$ cat file1 
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+qwerty
+
+student@Ubuntu-MySQL-VirtualBox:~$ chmod +x cls_upp_f.sh 
+student@Ubuntu-MySQL-VirtualBox:~$ ./cls_upp_f.sh 
+plese input file
+student@Ubuntu-MySQL-VirtualBox:~$ ./cls_upp_f.sh file1 
+student@Ubuntu-MySQL-VirtualBox:~$ cat file1 
+QWERTY
+QWERTY
+QWERTY
+QWERTY
+QWERTY
+QWERTY
+QWERTY
+QWERTY
+QWERTY
+QWERTY 
+student@Ubuntu-MySQL-VirtualBox:~$  for y in {2010..2017}; do ! [[ -d $y ]] && mkdir $y; cd $y; for d in {01..12}; do ! [[ -d $d ]] && mkdir $d; cd $d; for f in {001..010}; do  ! [[ -f $f ]] && (echo "Файл $f" > "$f.txt"); done; cd ..; done; cd ..; done;
+student@Ubuntu-MySQL-VirtualBox:~$ ls
+cls_upp_f.sh  file1
+student@Ubuntu-MySQL-VirtualBox:~$ struct=$(echo {2010..2017}/{01..12}); for path in $struct; do mkdir -p $path; for f in {001..010}; do echo "File $f" > $path/$f.txt ;done ;done
+student@Ubuntu-MySQL-VirtualBox:~$ tree | head -20
+.
+├── 2010
+│   ├── 01
+│   │   ├── 001.txt
+│   │   ├── 002.txt
+│   │   ├── 003.txt
+│   │   ├── 004.txt
+│   │   ├── 005.txt
+│   │   ├── 006.txt
+│   │   ├── 007.txt
+│   │   ├── 008.txt
+│   │   ├── 009.txt
+│   │   └── 010.txt
+│   ├── 02
+│   │   ├── 001.txt
+│   │   ├── 002.txt
+│   │   ├── 003.txt
+│   │   ├── 004.txt
+│   │   ├── 005.txt
+│   │   ├── 006.txt
+student@Ubuntu-MySQL-VirtualBox:~$ cat 2017/04/007.txt 
+File 007
+student@Ubuntu-MySQL-VirtualBox:~$ ls -la /etc/ | head -10 # очень много файлов/папок/ссылок
+total 876
+drwxr-xr-x 103 root root       4096 Jan 28 20:20 .
+drwxr-xr-x  20 root root       4096 Jan 18 21:00 ..
+-rw-r--r--   1 root root       3028 Aug 24 08:42 adduser.conf
+drwxr-xr-x   2 root root       4096 Jan 19 20:18 alternatives
+drwxr-xr-x   3 root root       4096 Aug 24 08:47 apparmor
+drwxr-xr-x   7 root root       4096 Jan 11 21:46 apparmor.d
+drwxr-xr-x   3 root root       4096 Jan 11 21:34 apport
+drwxr-xr-x   7 root root       4096 Jan 11 21:27 apt
+-rw-r-----   1 root daemon      144 Nov 12  2018 at.deny
+student@Ubuntu-MySQL-VirtualBox:~$ ls -l /etc/ | awk '/^-/{print $1}' # только права файлов
+-rw-r--r--
+-rw-r-----
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r-----
+-rw-r-----
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-r--r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r-----
+-rw-r-----
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-r--r-----
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rwxrwxrwx
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+-rw-r--r--
+student@Ubuntu-MySQL-VirtualBox:~$ ls -l /etc/ | awk '/^-/{print $1}' | sort | uniq
+-r--r-----
+-r--r--r--
+-rw-r-----
+-rw-r--r--
+-rwxrwxrwx
+student@Ubuntu-MySQL-VirtualBox:~$ grep '^\w*\s*[0-9]*\s*17:3.:..' /var/log/syslog
+June 28 17:34:59 virtubserver PackageKit: daemon quit
+June 28 17:34:59 virtubserver systemd[1]: packagekit.service: Succeeded.
+student@Ubuntu-MySQL-VirtualBox:~$ service atd status
+● atd.service - Deferred execution scheduler
+     Loaded: loaded (/lib/systemd/system/atd.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2022-06-28 17:02:09 UTC; 2h 25min ago
+       Docs: man:atd(8)
+   Main PID: 789 (atd)
+      Tasks: 1 (limit: 2273)
+     Memory: 644.0K
+     CGroup: /system.slice/atd.service
+             └─789 /usr/sbin/atd -f
+
+June 28 17:02:09 virtubserver systemd[1]: Starting Deferred execution scheduler...
+June 28 17:02:09 virtubserver systemd[1]: Started Deferred execution scheduler.
+student@Ubuntu-MySQL-VirtualBox:~$ echo "reboot" | sudo at next minute 
+[sudo] password for student: 
+warning: commands will be executed using /bin/sh
+job 1 at Fri June 28 22:32:00 2022
